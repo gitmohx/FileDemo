@@ -19,7 +19,7 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mEditText;
     private TextView mTvShow;
     @SuppressLint("SdCardPath")
-    private String filePatch = "/sdcard/test/test.txt";
+    private String filePatch = "/storage/sdcard0/test/test.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.button_write:
-                if (mEditText.getText() != null) {
+                if (mEditText.getText() != null && !TextUtils.isEmpty(mEditText.getText().toString())) {
                     String packName = mEditText.getText().toString();
                     initData(packName);
                     mEditText.setText("");
@@ -69,7 +69,7 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData(String str) {
-        String filePath = "/sdcard/test/";
+        String filePath = "/storage/sdcard0/test/";
         String fileName = "test.txt";
         FileUtils.writeTxtToFile(str, filePath, fileName);
     }

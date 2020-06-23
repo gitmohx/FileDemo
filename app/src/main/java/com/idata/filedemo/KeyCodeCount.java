@@ -14,16 +14,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class KeyCodeCount extends AppCompatActivity {
     private TextView tvCount1;
     private TextView tvCount2;
+    private Context mContext;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.keycode_layout);
+        mContext = this;
 
         tvCount1 = findViewById(R.id.tv_count1);
         tvCount2 = findViewById(R.id.tv_count2);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constant.IDATA_KEYCODE_COUNT);
-        this.registerReceiver(mBroadcast,filter);
+        mContext.registerReceiver(mBroadcast,filter);
     }
 
     private BroadcastReceiver mBroadcast = new BroadcastReceiver() {
@@ -43,14 +45,14 @@ public class KeyCodeCount extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        int scan1 = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, Constant.KEYCODE_SCAN_1, Constant.KEYCODE_SCAN_1);
-        int scan2 = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, Constant.KEYCODE_SCAN_2, Constant.KEYCODE_SCAN_2);
-        tvCount1.setText("Scan_1:" + scan1 +"次");
-        tvCount2.setText("Scan_2:" + scan2 +"次");
+        int scan1 = SharedPreferencesUtils.getIntPref(mContext, Constant.KEYCODE_SCAN_1, Constant.KEYCODE_SCAN_1);
+        int scan2 = SharedPreferencesUtils.getIntPref(mContext, Constant.KEYCODE_SCAN_2, Constant.KEYCODE_SCAN_2);
+        tvCount1.setText(Constant.KEYCODE_SCAN_1 + ":" + scan1);
+        tvCount2.setText(Constant.KEYCODE_SCAN_2 + ":" + scan2);
     }
     @SuppressLint("SetTextI18n")
     private void makeCount(String keycode) {
-        int num = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, keycode, keycode);
+        int num = SharedPreferencesUtils.getIntPref(mContext, keycode, keycode);
         int sum = 0;
         if (num != 0) {
             sum = num;
@@ -58,13 +60,13 @@ public class KeyCodeCount extends AppCompatActivity {
         sum++;
         if(sum > 10000){
             sum = 0;
-            SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, 0);
+            SharedPreferencesUtils.setIntPref(mContext, keycode, keycode, 0);
         }
-        SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, sum);
+        SharedPreferencesUtils.setIntPref(mContext, keycode, keycode, sum);
         if(keycode.equals(Constant.KEYCODE_SCAN_1)){
-            tvCount1.setText("Scan_1:" + sum +"次");
+            tvCount1.setText(keycode + ":" + sum);
         }else if(keycode.equals(Constant.KEYCODE_SCAN_2)){
-            tvCount2.setText("Scan_2:" + sum +"次");
+            tvCount2.setText(keycode + ":" + sum);
         }
     }
 

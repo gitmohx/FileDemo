@@ -1,5 +1,6 @@
 package com.idata.filedemo;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -38,11 +39,16 @@ public class KeyCodeCount extends AppCompatActivity {
             }
         }
     };
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onResume() {
         super.onResume();
-
+        int scan1 = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, Constant.KEYCODE_SCAN_1, Constant.KEYCODE_SCAN_1);
+        int scan2 = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, Constant.KEYCODE_SCAN_2, Constant.KEYCODE_SCAN_2);
+        tvCount1.setText("Scan_1:" + scan1 +"次");
+        tvCount2.setText("Scan_2:" + scan2 +"次");
     }
+    @SuppressLint("SetTextI18n")
     private void makeCount(String keycode) {
         int num = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, keycode, keycode);
         int sum = 0;
@@ -55,10 +61,10 @@ public class KeyCodeCount extends AppCompatActivity {
             SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, 0);
         }
         SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, sum);
-        if(keycode.equals(Constant.KEYCODE_SCAN_1)  && keycode != null){
-            tvCount1.setText(String.valueOf(sum));
-        }else if(keycode.equals(Constant.KEYCODE_SCAN_2)  && keycode != null){
-            tvCount2.setText(String.valueOf(sum));
+        if(keycode.equals(Constant.KEYCODE_SCAN_1)){
+            tvCount1.setText("Scan_1:" + sum +"次");
+        }else if(keycode.equals(Constant.KEYCODE_SCAN_2)){
+            tvCount2.setText("Scan_2:" + sum +"次");
         }
     }
 

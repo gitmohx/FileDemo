@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FileDemo</string>
+    <string name="title_activity_settings">FileDemo</string>
 </resources>

@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static String TAG = "MainActivity";
     private Button mGotoFile;
+    private Button mGotoKeyCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         mGotoFile = findViewById(R.id.button_file);
         mGotoFile.setOnClickListener(this);
+        mGotoKeyCode = findViewById(R.id.button_keycode);
+        mGotoKeyCode.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.printStackTrace();
                 }
                 this.startActivity(mIntent);
+                break;
+            case R.id.button_keycode:
+                Intent intent = new Intent();
+                try {
+                    intent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.KeyCodeCount"));
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                this.startActivity(intent);
                 break;
             default:
                 break;

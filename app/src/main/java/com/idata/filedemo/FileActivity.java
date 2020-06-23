@@ -1,6 +1,5 @@
 package com.idata.filedemo;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,8 +17,6 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
     private Button mDeleteFile;
     private EditText mEditText;
     private TextView mTvShow;
-    @SuppressLint("SdCardPath")
-    private String filePatch = "/storage/sdcard0/test/test.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +40,7 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_read:
-                String text = FileUtils.ReadTxtFile(filePatch);
+                String text = FileUtils.ReadTxtFile(Constant.FilePath);
                 if (!TextUtils.isEmpty(text)) {
                     mTvShow.setText(text);
                 } else {
@@ -58,8 +55,8 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.button_delete:
-                if (!TextUtils.isEmpty(filePatch)) {
-                    FileUtils.delete(filePatch);
+                if (!TextUtils.isEmpty(Constant.FilePath)) {
+                    FileUtils.delete(Constant.FilePath);
                     mTvShow.setText(null);
                 }
                 break;
@@ -77,8 +74,8 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        if (!TextUtils.isEmpty(filePatch)) {
-            String text = FileUtils.ReadTxtFile(filePatch);
+        if (!TextUtils.isEmpty(Constant.FilePath)) {
+            String text = FileUtils.ReadTxtFile(Constant.FilePath);
             if (!TextUtils.isEmpty(text)) {
                 mTvShow.setText(text);
             } else {

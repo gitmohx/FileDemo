@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,7 +21,7 @@ public class KeyCodeCount extends AppCompatActivity {
         tvCount1 = findViewById(R.id.tv_count1);
         tvCount2 = findViewById(R.id.tv_count2);
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.idata.keycode_count");
+        filter.addAction(Constant.IDATA_KEYCODE_COUNT);
         this.registerReceiver(mBroadcast,filter);
     }
 
@@ -30,11 +29,11 @@ public class KeyCodeCount extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             String keyCode = intent.getStringExtra("keyCode");
-            if(intent.getAction().equals("com.idata.keycode_count")){
-                if(keyCode.equals("189")){
+            if(intent.getAction().equals(Constant.IDATA_KEYCODE_COUNT)){
+                if(keyCode.equals(Constant.KEYCODE_SCAN_1)){
                     makeCount(keyCode);
-                }else if(keyCode.equals("188")){
-                    makeCount("188");
+                }else if(keyCode.equals(Constant.KEYCODE_SCAN_2)){
+                    makeCount(keyCode);
                 }
             }
         }
@@ -42,6 +41,7 @@ public class KeyCodeCount extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
     }
     private void makeCount(String keycode) {
         int num = SharedPreferencesUtils.getIntPref(KeyCodeCount.this, keycode, keycode);
@@ -55,9 +55,9 @@ public class KeyCodeCount extends AppCompatActivity {
             SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, 0);
         }
         SharedPreferencesUtils.setIntPref(KeyCodeCount.this, keycode, keycode, sum);
-        if(keycode.equals("188")  && keycode != null){
+        if(keycode.equals(Constant.KEYCODE_SCAN_1)  && keycode != null){
             tvCount1.setText(String.valueOf(sum));
-        }else if(keycode.equals("189")  && keycode != null){
+        }else if(keycode.equals(Constant.KEYCODE_SCAN_2)  && keycode != null){
             tvCount2.setText(String.valueOf(sum));
         }
     }

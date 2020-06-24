@@ -14,7 +14,7 @@
         android:clickable="true"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:text="文件操作"
+        android:text="File"
         />
     <Button
         android:id="@+id/button_keycode"
@@ -25,6 +25,16 @@
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
         android:text="keycode"
+        />
+    <Button
+        android:id="@+id/button_prop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:clickable="true"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:text="SystemProp"
         />
 
 </LinearLayout>

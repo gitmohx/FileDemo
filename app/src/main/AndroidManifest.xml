@@ -3,6 +3,7 @@
     package="com.idata.filedemo">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +19,7 @@
         </activity>
         <activity android:name=".FileActivity"/>
         <activity android:name=".KeyCodeCount"/>
+        <activity android:name=".SystemProp"/>
     </application>
 
 </manifest>

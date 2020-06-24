@@ -17,9 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FileActivity"/>
-        <activity android:name=".KeyCodeCount"/>
-        <activity android:name=".SystemProp"/>
+        <activity android:name=".activity.FileActivity"/>
+        <activity android:name=".activity.KeyCodeCount"/>
+        <activity android:name=".activity.SystemProp"/>
     </application>
 
 </manifest>

@@ -1,10 +1,13 @@
-package com.idata.filedemo;
+package com.idata.filedemo.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.idata.filedemo.R;
+import com.idata.filedemo.utils.DeviceInfoUtils;
 
 public class SystemProp extends AppCompatActivity {
 

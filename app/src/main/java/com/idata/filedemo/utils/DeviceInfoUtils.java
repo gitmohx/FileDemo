@@ -1,4 +1,4 @@
-package com.idata.filedemo;
+package com.idata.filedemo.utils;
 
 import java.util.Locale;
 
@@ -11,9 +11,6 @@ import android.telephony.TelephonyManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-/**
- * DeviceInfoUtils.java** Created on: 2017-11-16* Author: wangjie** Welcome attention to weixin public number get more info** WeiXin Public Number : ProgramAndroid* 微信公众号 ：程序员Android
- **/
 public class DeviceInfoUtils {
     /*** 获取设备宽度（px）**/
     public static int getDeviceWidth(Context context) {

@@ -1,4 +1,4 @@
-package com.idata.filedemo;
+package com.idata.filedemo.activity;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.idata.filedemo.bean.Constant;
+import com.idata.filedemo.R;
+import com.idata.filedemo.utils.SharedPreferencesUtils;
 
 public class KeyCodeCount extends AppCompatActivity {
     private TextView tvCount1;

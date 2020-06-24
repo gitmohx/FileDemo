@@ -1,6 +1,5 @@
 package com.idata.filedemo;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_file:
                 Intent mIntent = new Intent();
                 try {
-                    mIntent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.FileActivity"));
+                    mIntent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.FileActivity"));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_keycode:
                 Intent intent = new Intent();
                 try {
-                    intent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.KeyCodeCount"));
+                    intent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.KeyCodeCount"));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_prop:
                 Intent i = new Intent();
                 try {
-                    i.setClass(MainActivity.this, Class.forName("com.idata.filedemo.SystemProp"));
+                    i.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.SystemProp"));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }

@@ -1,4 +1,4 @@
-package com.idata.filedemo;
+package com.idata.filedemo.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

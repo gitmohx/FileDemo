@@ -1,4 +1,4 @@
-package com.idata.filedemo;
+package com.idata.filedemo.bean;
 
 public class Constant {
     public static String IDATA_KEYCODE_COUNT= "com.idata.keycode_count";

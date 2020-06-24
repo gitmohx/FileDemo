@@ -1,4 +1,4 @@
-package com.idata.filedemo;
+package com.idata.filedemo.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.idata.filedemo.bean.Constant;
+import com.idata.filedemo.R;
+import com.idata.filedemo.utils.FileUtils;
 
 public class FileActivity extends AppCompatActivity implements View.OnClickListener {
 

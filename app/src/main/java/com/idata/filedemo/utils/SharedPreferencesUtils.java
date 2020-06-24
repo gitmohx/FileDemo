@@ -1,11 +1,10 @@
-package com.idata.filedemo;
+package com.idata.filedemo.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
  * SharedPreferences数据持久化
- * Created by Administrator on 2016/5/24.
  */
 public class SharedPreferencesUtils {
 

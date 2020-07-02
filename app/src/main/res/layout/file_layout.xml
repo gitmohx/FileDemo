@@ -19,8 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:clickable="true"
-        android:onClick="onClick"
         android:text="写入" />
 
     <Button
@@ -28,8 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dip"
-        android:clickable="true"
-        android:onClick="onClick"
         android:text="删除" />
 
     <Button
@@ -37,8 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dip"
-        android:clickable="true"
-        android:onClick="onClick"
         android:text="读取" />
 
     <TextView

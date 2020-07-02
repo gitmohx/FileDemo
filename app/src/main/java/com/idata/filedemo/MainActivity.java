@@ -7,6 +7,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.idata.filedemo.activity.FileActivity;
+import com.idata.filedemo.activity.KeyCodeCount;
+import com.idata.filedemo.activity.SystemProp;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String TAG = "MainActivity";
@@ -34,30 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_file:
-                Intent mIntent = new Intent();
-                try {
-                    mIntent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.FileActivity"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                Intent mIntent = new Intent(MainActivity.this, FileActivity.class);
                 this.startActivity(mIntent);
                 break;
             case R.id.button_keycode:
-                Intent intent = new Intent();
-                try {
-                    intent.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.KeyCodeCount"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent(MainActivity.this, KeyCodeCount.class);
                 this.startActivity(intent);
                 break;
             case R.id.button_prop:
-                Intent i = new Intent();
-                try {
-                    i.setClass(MainActivity.this, Class.forName("com.idata.filedemo.activity.SystemProp"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                Intent i = new Intent(MainActivity.this, SystemProp.class);
                 this.startActivity(i);
                 break;
             default:

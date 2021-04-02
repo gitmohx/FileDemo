@@ -2,6 +2,7 @@ package com.idata.filedemo.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.idata.filedemo.bean.Constant;
 import com.idata.filedemo.R;
 import com.idata.filedemo.utils.FileUtils;
+
+import java.io.File;
 
 public class FileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,9 +72,9 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private String filePath = "/storage/sdcard0/test/";
+    private String fileName = "test.txt";
     private void initData(String str) {
-        String filePath = "/storage/sdcard0/test/";
-        String fileName = "test.txt";
         FileUtils.writeTxtToFile(str, filePath, fileName);
     }
 
@@ -84,6 +87,19 @@ public class FileActivity extends AppCompatActivity implements View.OnClickListe
                 mTvShow.setText(text);
             } else {
                 mTvShow.setText(null);
+            }
+        }
+
+        File file = new File(filePath + fileName);
+        if(file.exists()) {
+            try {
+                Long size = FileUtils.getFileSize(file);
+                Log.d(TAG, "size == " + FileUtils.FormetFileSize(size));
+                if(size >= 1024){
+                    FileUtils.delete(Constant.FilePath);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
